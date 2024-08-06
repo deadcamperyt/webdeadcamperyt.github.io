@@ -1,0 +1,495 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SERIES</title>
+    <link rel="stylesheet" href="styles/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css"
+        alt="iconos">
+    <link rel="icon" href="imagenes/logo 1.png">
+    <style>
+        .header {
+            display: flex;
+            width: 90%;
+            margin: auto;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .header img {
+            margin: auto 10px;
+        }
+
+        .center {
+            text-align: center;
+        }
+
+
+        main {
+            padding: 20px;
+        }
+
+        .series-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+            gap: 15px;
+        }
+
+        .series {
+            background-color: #ffffff15;
+            border-radius: 5px;
+            overflow: hidden;
+            transition: transform 0.3s ease;
+        }
+
+        .series:hover {
+            transform: scale(1.05);
+        }
+
+        .series a {
+            text-decoration: none;
+            color: inherit;
+            display: block;
+        }
+
+        .series img {
+            width: 100%;
+            height: 225px;
+            object-fit: cover;
+        }
+
+        .series-info {
+            padding: 10px;
+        }
+
+        .series h2 {
+            margin: 0;
+            font-size: 1em;
+        }
+
+        .series p {
+            font-size: 0.8em;
+            margin-top: 5px;
+        }
+
+        .series-count {
+            text-align: center;
+            margin-bottom: 20px;
+            font-size: 1.2em;
+        }
+
+        @media (min-width: 768px) {
+            .series-grid {
+                grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+            }
+
+            .series img {
+                height: 300px;
+            }
+
+            .series h2 {
+                font-size: 1.2em;
+            }
+
+            .series p {
+                font-size: 0.9em;
+            }
+        }
+    </style>
+
+    <style>
+        @media (max-width: 768px) {
+            .header {
+                flex-direction: column;
+            }
+
+            .header nav {
+                width: 100%;
+                overflow-x: auto;
+                justify-content: initial;
+                scroll-behavior: smooth;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="header">
+        <a href="/">
+            <img width="150" height="90" src="imagenes/logo2.png" alt="Logo">
+        </a>
+        <nav>
+            <ul>
+                <li><a href="index.html">Inicio</a></li>
+                <li><a href="videos.html">Videos</a></li>
+                <li><a href="programas.html">Programas</a></li>
+                <li><a href="juegos.html">Juegos</a></li>
+                <li><a href="entretenimiento.html">Entretenimiento</a></li>
+                <li><a href="noticias.html">Noticias</a></li>
+                <li><a href="#">Info</a></li>
+            </ul>
+        </nav>
+        <div class="search-container">
+            <button type="button" class="search-button" id="search-button">
+                <i class="fa fa-search"></i>
+            </button>
+            <input type="text" name="q" class="search-input" placeholder="Buscar..." id="search-input">
+        </div>
+    </div>
+    <h1 style="text-align: center;"></h1>
+    <div class="series-count" id="seriesCount"></div>
+    <main>
+        <div class="series-grid">
+            <div class="series">
+                <a href="Series/seduccion-fatal.html">
+                    <img src="imagenes/Series/Seducción fatal.webp" alt="Serie ">
+                    <div class="series-info">
+                        <h2>Seducción fatal
+                        </h2>
+                        <p>2023 | thriller, suspense</p>
+                    </div>
+                </a>
+            </div>
+            <div class="series">
+                <a href="Series/Watch-Plunderer.html">
+                    <img src="imagenes/Series/Watch Plunderer.webp" alt="Serie ">
+                    <div class="series-info">
+                        <h2>Watch Plunderer
+                        </h2>
+                        <p>2020 | Acción, fantasía</p>
+                    </div>
+                </a>
+            </div>
+            <div class="series">
+                <a href="Series/Hyouken-no-Majutsushi-ga-Sekai-wo-Suberu.html">
+                    <img src="imagenes/Series/Hyouken no Majutsushi ga Sekai wo Suberu.webp" alt="Serie ">
+                    <div class="series-info">
+                        <h2>Hyouken no Majutsushi ga Sekai wo Suberu </h2>
+                        <p>2020 | Aventura, fantasía,​ acción, escolar</p>
+                    </div>
+                </a>
+            </div>
+            <div class="series">
+                <a href="Series/Shuumatsu-no-Valkyrie-(Record-of-Ragnarok).html">
+                    <img src="imagenes/Series/Shuumatsu no Valkyrie (Record of Ragnarok).webp" alt="Serie ">
+                    <div class="series-info">
+                        <h2>Shuumatsu no Valkyrie (Record of Ragnarok) </h2>
+                        <p>2021 | Acción, Fantasía, Comedia.</p>
+                    </div>
+                </a>
+            </div>
+            <div class="series">
+                <a href="serie.html">
+                    <img src="imagenes/Series/Akame ga kill.webp" alt="Serie ">
+                    <div class="series-info">
+                        <h2>Akame ga kill</h2>
+                        <p>2014 | Acción, aventura, drama, fantasía oscura, tragedia​</p>
+                    </div>
+                </a>
+            </div>
+            <div class="series">
+                <a href="serie.html">
+                    <img src="imagenes/Series/Attack on Titan.webp" alt="Serie ">
+                    <div class="series-info">
+                        <h2>Attack on Titan </h2>
+                        <p>2013 | Acción, fantasía oscura, drama post-apocalíptico</p>
+                    </div>
+                </a>
+            </div>
+            <div class="series">
+                <a href="serie.html">
+                    <img src="imagenes/Series/Kenja no mago.webp" alt="Serie ">
+                    <div class="series-info">
+                        <h2>Kenja no mago
+                             </h2>
+                        <p>2019 | Isekai, Fantasía, Comedia, Romance</p>
+                    </div>
+                </a>
+            </div>
+            <div class="series">
+                <a href="serie.html">
+                    <img src="imagenes/Series/overlord.webp" alt="Serie ">
+                    <div class="series-info">
+                        <h2>Overlord </h2>
+                        <p>2015 | Fantasía oscura, Isekai</p>
+                    </div>
+                </a>
+            </div>
+            <div class="series">
+                <a href="serie.html">
+                    <img src="imagenes/Series/Demon Slayer Kimetsu no Yaiba.webp" alt="Serie ">
+                    <div class="series-info">
+                        <h2>Demon Slayer: Kimetsu no Yaiba  </h2>
+                        <p>2019 | Ficción de aventuras, Fantasía oscura, Artes marciales</p>
+                    </div>
+                </a>
+            </div>
+            <div class="series">
+                <a href="serie.html">
+                    <img src="imagenes/Series/Akashic Records of Bastard Magical Instructor.webp" alt="Serie ">
+                    <div class="series-info">
+                        <h2>Akashic Records of Bastard Magical Instructor </h2>
+                        <p>2017 | Acción, Género fantástico, Harem</p>
+                    </div>
+                </a>
+            </div>
+            <div class="series">
+                <a href="serie.html">
+                    <img src="imagenes/Series/Mushoku Tensei.webp" alt="Serie ">
+                    <div class="series-info">
+                        <h2>Mushoku Tensei </h2>
+                        <p>2021 | Género fantástico, Harem, Isekai, Fantasía</p>
+                    </div>
+                </a>
+            </div>
+            <div class="series">
+                <a href="serie.html">
+                    <img src="imagenes/Series/Castlevania.webp" alt="Serie ">
+                    <div class="series-info">
+                        <h2>Castlevania </h2>
+                        <p>2017 | Acción-aventura</p>
+                    </div>
+                </a>
+            </div>
+            <div class="series">
+                <a href="serie.html">
+                    <img src="imagenes/Series/Castlevania Nocturne.webp" alt="Serie ">
+                    <div class="series-info">
+                        <h2>Castlevania: Nocturne</h2>
+                        <p>2023 | Animación, Horror, Fantasía, Acción, Aventuras</p>
+                    </div>
+                </a>
+            </div>
+            <div class="series">
+                <a href="serie.html">
+                    <img src="https://via.placeholder.com/300x450" alt="Serie ">
+                    <div class="series-info">
+                        <h2>Serie </h2>
+                        <p>2023 | Ciencia Ficción</p>
+                    </div>
+                </a>
+            </div>
+            <div class="series">
+                <a href="serie.html">
+                    <img src="https://via.placeholder.com/300x450" alt="Serie ">
+                    <div class="series-info">
+                        <h2>Serie </h2>
+                        <p>2023 | Ciencia Ficción</p>
+                    </div>
+                </a>
+            </div>
+            <div class="series">
+                <a href="serie.html">
+                    <img src="https://via.placeholder.com/300x450" alt="Serie ">
+                    <div class="series-info">
+                        <h2>Serie </h2>
+                        <p>2023 | Ciencia Ficción</p>
+                    </div>
+                </a>
+            </div>
+            <div class="series">
+                <a href="serie.html">
+                    <img src="https://via.placeholder.com/300x450" alt="Serie ">
+                    <div class="series-info">
+                        <h2>Serie </h2>
+                        <p>2023 | Ciencia Ficción</p>
+                    </div>
+                </a>
+            </div>
+            <div class="series">
+                <a href="serie.html">
+                    <img src="https://via.placeholder.com/300x450" alt="Serie ">
+                    <div class="series-info">
+                        <h2>Serie </h2>
+                        <p>2023 | Comedia</p>
+                    </div>
+                </a>
+            </div>
+            <div class="series">
+                <a href="serie.html">
+                    <img src="https://via.placeholder.com/300x450" alt="Serie ">
+                    <div class="series-info">
+                        <h2>Serie </h2>
+                        <p>2023 | Ciencia Ficción</p>
+                    </div>
+                </a>
+            </div>
+            <div class="series">
+                <a href="serie.html">
+                    <img src="https://via.placeholder.com/300x450" alt="Serie ">
+                    <div class="series-info">
+                        <h2>Serie </h2>
+                        <p>2023 | Ciencia Ficción</p>
+                    </div>
+                </a>
+            </div>
+            <div class="series">
+                <a href="serie.html">
+                    <img src="https://via.placeholder.com/300x450" alt="Serie ">
+                    <div class="series-info">
+                        <h2>Serie </h2>
+                        <p>2023 | Ciencia Ficción</p>
+                    </div>
+                </a>
+            </div>
+            <div class="series">
+                <a href="serie.html">
+                    <img src="https://via.placeholder.com/300x450" alt="Serie ">
+                    <div class="series-info">
+                        <h2>Serie </h2>
+                        <p>2023 | Ciencia Ficción</p>
+                    </div>
+                </a>
+            </div>
+            <div class="series">
+                <a href="serie.html">
+                    <img src="https://via.placeholder.com/300x450" alt="Serie ">
+                    <div class="series-info">
+                        <h2>Serie </h2>
+                        <p>2023 | Ciencia Ficción</p>
+                    </div>
+                </a>
+            </div>
+            <div class="series">
+                <a href="serie.html">
+                    <img src="https://via.placeholder.com/300x450" alt="Serie ">
+                    <div class="series-info">
+                        <h2>Serie </h2>
+                        <p>2023 | Ciencia Ficción</p>
+                    </div>
+                </a>
+            </div>
+            <div class="series">
+                <a href="serie.html">
+                    <img src="https://via.placeholder.com/300x450" alt="Serie ">
+                    <div class="series-info">
+                        <h2>Serie </h2>
+                        <p>2023 | Ciencia Ficción</p>
+                    </div>
+                </a>
+            </div>
+            <div class="series">
+                <a href="serie.html">
+                    <img src="https://via.placeholder.com/300x450" alt="Serie ">
+                    <div class="series-info">
+                        <h2>Serie </h2>
+                        <p>2023 | Ciencia Ficción</p>
+                    </div>
+                </a>
+            </div>
+            <div class="series">
+                <a href="serie.html">
+                    <img src="https://via.placeholder.com/300x450" alt="Serie ">
+                    <div class="series-info">
+                        <h2>Serie </h2>
+                        <p>2023 | Ciencia Ficción</p>
+                    </div>
+                </a>
+            </div>
+            <div class="series">
+                <a href="serie.html">
+                    <img src="https://via.placeholder.com/300x450" alt="Serie ">
+                    <div class="series-info">
+                        <h2>Serie </h2>
+                        <p>2023 | Ciencia Ficción</p>
+                    </div>
+                </a>
+            </div>
+            <div class="series">
+                <a href="serie.html">
+                    <img src="https://via.placeholder.com/300x450" alt="Serie ">
+                    <div class="series-info">
+                        <h2>Serie </h2>
+                        <p>2023 | Ciencia Ficción</p>
+                    </div>
+                </a>
+            </div>
+            <div class="series">
+                <a href="serie.html">
+                    <img src="https://via.placeholder.com/300x450" alt="Serie ">
+                    <div class="series-info">
+                        <h2>Serie </h2>
+                        <p>2023 | Ciencia Ficción</p>
+                    </div>
+                </a>
+            </div>
+            <div class="series">
+                <a href="serie.html">
+                    <img src="https://via.placeholder.com/300x450" alt="Serie ">
+                    <div class="series-info">
+                        <h2>Serie </h2>
+                        <p>2023 | Ciencia Ficción</p>
+                    </div>
+                </a>
+            </div>
+            <div class="series">
+                <a href="serie.html">
+                    <img src="https://via.placeholder.com/300x450" alt="Serie ">
+                    <div class="series-info">
+                        <h2>Serie </h2>
+                        <p>2023 | Ciencia Ficción</p>
+                    </div>
+                </a>
+            </div>
+            <div class="series">
+                <a href="serie.html">
+                    <img src="https://via.placeholder.com/300x450" alt="Serie ">
+                    <div class="series-info">
+                        <h2>Serie </h2>
+                        <p>2023 | Ciencia Ficción</p>
+                    </div>
+                </a>
+            </div>
+            <div class="series">
+                <a href="serie.html">
+                    <img src="https://via.placeholder.com/300x450" alt="Serie ">
+                    <div class="series-info">
+                        <h2>Serie </h2>
+                        <p>2023 | Ciencia Ficción</p>
+                    </div>
+                </a>
+            </div>
+            <div class="series">
+                <a href="serie.html">
+                    <img src="https://via.placeholder.com/300x450" alt="Serie ">
+                    <div class="series-info">
+                        <h2>Serie </h2>
+                        <p>2023 | Ciencia Ficción</p>
+                    </div>
+                </a>
+            </div>
+            <div class="series">
+                <a href="serie.html">
+                    <img src="https://via.placeholder.com/300x450" alt="Serie ">
+                    <div class="series-info">
+                        <h2>Serie </h2>
+                        <p>2023 | Ciencia Ficción</p>
+                    </div>
+                </a>
+            </div>
+            <div class="series">
+                <a href="serie.html">
+                    <img src="https://via.placeholder.com/300x450" alt="Serie ">
+                    <div class="series-info">
+                        <h2>Serie </h2>
+                        <p>2023 | Ciencia Ficción</p>
+                    </div>
+                </a>
+            </div>
+        </div>
+    </main>
+
+    <script>
+        function updateSeriesCount() {
+            const seriesCount = document.querySelectorAll('.series').length;
+            const seriesCountElement = document.getElementById('seriesCount');
+            seriesCountElement.textContent = `Total de series: ${seriesCount}`;
+        }
+
+        window.addEventListener('load', updateSeriesCount);
+    </script>
+</body>
+
+</html>

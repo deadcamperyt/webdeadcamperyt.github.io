@@ -1,0 +1,419 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>DEADCAMPERYT</title>
+  <link rel="stylesheet" href="styles/style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css" alt="iconos">
+  <link rel="icon" href="imagenes/logo 1.png">
+</head>
+
+<style>
+  /* Estilo de la página principal */
+  .container {
+    display: flex;
+    justify-content: space-between;
+    padding: 50px;
+  }
+
+  .content {
+    width: 100%;
+    padding: 10px;
+    box-sizing: border-box;
+    
+  }
+
+  h1 {
+    font-size: 2.5rem;
+    /* Ajustado para mejor escalabilidad */
+    font-weight: bold;
+    margin-bottom: 20px;
+  }
+
+  p {
+    font-size: 1rem;
+    /* Ajustado para mejor escalabilidad */
+    line-height: 1.5;
+  }
+
+  .button {
+    display: inline-block;
+    background-color: #fff;
+    color: #000;
+    border: none;
+    padding: 10px 20px;
+    font-size: 1rem;
+    /* Ajustado para mejor escalabilidad */
+    cursor: pointer;
+    border-radius: 5px;
+    margin-top: 20px;
+    text-decoration: none;
+    text-align: center;
+  }
+
+  .button:hover,
+  .button:focus {
+    background-color: #ccc;
+    color: #000;
+  }
+
+  .image img {
+    width: 100%;
+    height: auto;
+    max-width: 500px;
+    margin: auto;
+    border-radius: 10px;
+  }
+
+  .image {
+    max-width: 700px;
+    max-width: 500px;
+    overflow: hidden;
+  }
+
+  .social-icons {
+    display: flex;
+    align-items: center;
+    margin-top: 20px;
+  }
+
+  .social-icon {
+    margin-right: 10px;
+  }
+
+  /* Franja blanca */
+  .white-strip {
+    background-color: #fff;
+    height: 20px;
+    width: 100%;
+    margin-bottom: 20px;
+  }
+
+  /* Sección de videos destacados */
+  .featured-videos {
+    padding: 50px;
+    
+  }
+
+  .featured-videos h2 {
+    font-size: 2rem;
+    /* Ajustado para mejor escalabilidad */
+    text-align: center;
+    margin-bottom: 20px;
+  }
+
+  .video-container {
+    display: flex;
+    gap: 20px;
+    padding: 10px;
+
+  }
+
+  .video-container iframe {
+    flex: 1 1 calc(50% - 20px);
+    /* Tamaño igual para ambos videos en la fila, con espacio entre ellos */
+    max-width: 100%;
+    height: 300px;
+    /* Altura deseada para los videos */
+    border-radius: 10px;
+    border: none;
+    flex: 1 1 100%;
+    /* Ocupa todo el ancho disponible */
+    margin-bottom: 20px;
+    /* Espacio entre los videos */
+  }
+
+  .video-container iframe {
+    flex: 1 1 100%;
+    /* Ocupa todo el ancho disponible */
+    margin-bottom: 20px;
+    /* Espacio entre los videos */
+  }
+
+  /* Contenido exclusivo */
+  .exclusive {
+    background-color: #000;
+    color: #fff;
+    padding: 20px;
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+  }
+
+  .exclusive .content h1 {
+    font-size: 2rem;
+    /* Ajustado para mejor escalabilidad */
+    margin-bottom: 10px;
+  }
+
+  .exclusive .content p {
+    margin-bottom: 20px;
+  }
+
+  .exclusive .content .button {
+    background-color: #ffffff;
+    color: #000;
+    border: none;
+    padding: 10px 20px;
+    cursor: pointer;
+  }
+
+  .exclusive img {
+    width: 100%;
+    height: auto;
+    max-width: 500px;
+    margin: 20px auto;
+    border-radius: 10px;
+    overflow: hidden;
+  }
+
+  /* Media queries para diferentes tamaños de pantalla */
+  @media (min-width: 768px) {
+    .container {
+      flex-direction: row;
+    }
+
+    .content {
+      width: 50%;
+    }
+
+    .image img {
+      flex-direction: row;
+    }
+
+    .image {
+      width: 100%;
+    }
+
+    .exclusive {
+      flex-direction: row;
+    }
+
+    .white-strip {
+      flex-direction: row;
+    }
+
+    .publi {
+      flex-direction: row;
+    }
+
+
+
+  }
+
+  @media (max-width: 768px) {
+    .video-container {
+      flex-direction: column;
+      /* Cambia a una columna en dispositivos móviles */
+      align-items: center;
+      /* Centra los videos horizontalmente */
+    }
+
+    .video-container iframe {
+      flex: 1 1 100%;
+      /* Ocupa todo el ancho disponible */
+      margin-bottom: 20px;
+      /* Espacio entre los videos */
+    }
+  }
+
+  .header {
+    display: flex;
+    width: 90%;
+    margin: auto;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  .header img {
+    margin: auto 10px;
+  }
+
+  .featured-videos {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .video-container {
+    display: flex;
+  }
+
+  .featured-videos iframe {
+    width: 250px;
+  }
+
+  /* Estilos para la sección de patrocinadores */
+  @media (max-width: 768px) {
+    .header {
+      flex-direction: column;
+    }
+
+    .header nav {
+      width: 100%;
+      overflow-x: auto;
+      justify-content: initial;
+      scroll-behavior: smooth;
+    }
+
+    .container {
+      padding: 10px;
+      flex-direction: column;
+    }
+  }
+
+  /* Estilos para la sección de patrocinadores */
+  .patrocinios {
+    padding: 20px;
+    border-radius: 10px;
+    margin-bottom: 20px;
+  }
+
+  .publi {
+    text-align: center;
+  }
+
+  .publi h1 {
+    color: #fff;
+    font-size: 24px;
+    margin-bottom: 10px;
+  }
+
+  .publi p {
+    color: #fff;
+    font-size: 16px;
+    line-height: 1.5;
+    margin-bottom: 20px;
+  }
+
+  /* Estilos para centrar la imagen del patrocinador */
+  .center {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 20px;
+  }
+
+</style>
+
+<body>
+  <div class="header">
+    <a href="/">
+      <img width="150" height="90" src="imagenes/logo2.png" alt="Logo">
+    </a>
+    <nav>
+      <ul>
+        <li><a href="index.html">Inicio</a></li>
+        <li><a href="videos.html">Videos</a></li>
+        <li><a href="programas.html">Programas</a></li>
+        <li><a href="juegos.html">Juegos</a></li>
+        <li><a href="entretenimiento.html">Entretenimiento</a></li>
+        <li><a href="noticias.html">Noticias</a></li>
+        <li><a href="#">Info</a></li>
+      </ul>
+    </nav>
+
+    <!--barra de busqeuda-->
+    <div class="search-container">
+      <button type="button" class="search-button" id="search-button">
+        <i class="fa fa-search"></i>
+      </button>
+      <input type="text" name="q" class="search-input" placeholder="Buscar..." id="search-input">
+    </div>
+  </div>
+
+  <!-- contenido 1 -->
+  <div class="container">
+    <div class="content">
+      <div class="date"></div>
+      <h1>Bienvenidos a DEADCAMPERYT</h1>
+      <p>Descubre todo lo que hemos preparado para ti. Desde contenido exclusivo hasta las últimas novedades del mundo
+        del entretenimiento. 
+        </p>
+        <p>Nuestra página está diseñada para ofrecerte una experiencia única, con videos destacados,
+          información para descargar contenido y mucho más. ¡Explora y disfruta de todo lo que tenemos para ti!</p>
+      <a href="contenido.html" class="button">Ver Más</a>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    </div>
+    <div class="image">
+      <img src="imagenes/deadcamperyt.webp" alt="Imagen destacada">
+    </div>
+  </div>
+
+  <!-- franja blanca -->
+  <div class="white-strip"></div>
+
+  <!-- contenido 2 -->
+  <section class="featured-videos">
+    <h2>Videos Destacados</h2>
+    <div class="video-container">
+      <iframe src="https://www.youtube.com/embed/TgFzTi2T0QQ?si=WGC_qiqzySdX3T_3" title="YouTube video player"
+        frameborder="0"
+        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+        referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+      <iframe
+        src="https://www.facebook.com/plugins/video.php?height=314&href=https%3A%2F%2Fwww.facebook.com%2FDeadcamperyt%2Fvideos%2F266616456176234%2F&show_text=false&width=560&t=0"
+        style="border:none;overflow:hidden" scrolling="no" frameborder="0" allowfullscreen="true"
+        allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share"></iframe>
+    </div>
+  </section>
+
+  <!-- franja blanca -->
+  <div class="white-strip"></div>
+
+  <!-- contenido 3 -->
+
+  <div class="exclusive">
+    <div class="content">
+      <div class="date"></div>
+      <h1>CONTENIDO EXCLUSIVO EN DEADCAMPERYT</h1>
+      <p>Obtén acceso exclusivo a lanzamientos anticipados, rogramas exclusivos y contenidos.</p>
+      <a href="#" class="button">ACCEDER</a>
+    </div>
+    <div>
+      <img src="imagenes/exclusivo.webp" alt="contenido exclusivo">
+    </div>
+  </div>
+
+  <!-- franja blanca -->
+  <div class="white-strip"></div>
+
+  <!-- contenido 4 -->
+
+  <div class="patrocinios">
+    <div class="publi">
+      <div class="date"></div>
+      <h1>Agradecimiento</h1>
+      <p>Agradecemos a la entidad no identificada por proporcionarnos un espacio de alojamiento. Su apoyo y colaboración son fundamentales para el éxito continuo de nuestro canal y la creación de contenido de calidad para nuestra comunidad. Agradecemos profundamente su compromiso y confianza en nuestro proyecto.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- franja blanca -->
+  <div class="white-strip"></div>
+
+  <footer>
+    <div class="social-media">
+      <a rel="external" target="_blank" href="https://www.youtube.com/@DEADCAMPERYT">
+        <i class="fa-brands fa-youtube"></i>
+      </a>
+      <a rel="external" target="_blank" href="https://www.instagram.com/DeadCamperYT">
+        <i class="fa-brands fa-instagram"></i>
+      </a>
+      <a rel="external" target="_blank" href="https://www.twitter.com/DEADCANPER">
+        <i class="fa-brands fa-twitter"></i>
+      </a>
+      <a rel="external" target="_blank" href="https://www.tiktok.com/@deadyt2.0">
+        <i class="fa-brands fa-tiktok"></i>
+      </a>
+      <a rel="external" target="_blank" href="https://www.facebook.com/Deadcamperyt">
+        <i class="fa-brands fa-facebook"></i>
+      </a>
+    </div>
+    <p>© 2024 DEADCAMPERYT</p>
+  </footer>
+
+</body>
+
+</html>

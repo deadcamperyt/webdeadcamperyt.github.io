@@ -1,0 +1,573 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Entretenimiento</title>
+    <link rel="stylesheet" href="styles/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css"
+        alt="iconos">
+    <link rel="icon" href="imagenes/logo 1.png">
+</head>
+<style>
+    .header {
+        display: flex;
+        width: 90%;
+        margin: auto;
+        align-items: center;
+        justify-content: space-between;
+    }
+    
+    .header img {
+        margin: auto 10px;
+    }
+    
+    .center {
+        text-align: center;
+    }
+    
+    .banner-container {
+        position: relative;
+        margin: 20px auto;
+        width: 90%;
+        max-width: 1200px;
+        overflow-x: auto;
+    }
+    
+    .banner {
+        display: flex;
+        transition: transform 0.5s ease;
+    }
+    
+    .banner-item {
+        flex: 0 0 100%;
+        max-width: 100%;
+        position: relative;
+    }
+    
+    .banner-item img {
+        width: 100%;
+        height: auto;
+        object-fit: cover;
+        border-radius: 10px;
+    }
+    
+    .banner-item .info {
+        position: absolute;
+        bottom: 20px;
+        left: 20px;
+        background-color: rgba(0, 0, 0, 0.5);
+        padding: 10px;
+        border-radius: 5px;
+        margin: 20px;
+    }
+    
+    .banner-item .info h2 {
+        margin: 0 0 10px;
+        font-size: 24px;
+    }
+    
+    .banner-item .info p {
+        margin: 5px 0 10px;
+        font-size: 16px;
+    }
+    
+    .banner-item .info button {
+        background-color: #ffffff;
+        color: #000000;
+        border: none;
+        padding: 10px 20px;
+        font-size: 16px;
+        border-radius: 5px;
+        cursor: pointer;
+        text-decoration: none;
+    }
+    
+    .banner-item .info button:hover {
+        background-color: #838181;
+    }
+    
+    .Anterior,
+    .Siguiente {
+        position: absolute;
+        top: 50%;
+        transform: translateY(-50%);
+        background-color: rgba(0, 0, 0, 0.5);
+        border: none;
+        color: #fff;
+        font-size: 24px;
+        padding: 10px;
+        cursor: pointer;
+        z-index: 10;
+        transition: background-color 0.3s ease;
+    }
+    
+    .Anterior {
+        left: 10px;
+    }
+    
+    .Siguiente {
+        right: 10px;
+    }
+    
+    .Anterior:hover,
+    .Siguiente:hover {
+        background-color: rgba(0, 0, 0, 0.7);
+    }
+    
+    /*LINEA DE CATEGORIAS DE SECCION DE PELIUCLAS Y SERIES */
+    .linea-de-categoria {
+        display: flex;
+        justify-content: center;
+        background-color: #111;
+        padding: 10px 0;
+        margin-top: 20px;
+    }
+    
+    .linea-de-categoria a {
+        color: #fff;
+        margin: 0 20px;
+        text-decoration: none;
+        font-size: 18px;
+        padding: 10px 20px;
+        border-radius: 5px;
+        transition: background-color 0.3s ease;
+    }
+    
+    .linea-de-categoria a:hover {
+        background-color: #ffffff15;
+    }
+    
+    /*CONTENIDO DE PELICULAS Y SERIES REVUELTAS EN FILA Y COLUMNAS*/
+    .contenido {
+        position: relative;
+        margin: 20px auto;
+        width: 90%;
+        max-width: 1200px;
+        overflow-x: auto;
+        padding: 20px 0;
+        /* Añade espacio arriba y abajo */
+    }
+    
+    .individual {
+        display: flex;
+        flex-wrap: nowrap;
+        gap: 20px;
+        /* Espacio entre los elementos */
+    }
+    
+    .individual2 {
+        flex: 0 0 auto;
+        width: 200px;
+        background-color: #ffffff15;
+        border-radius: 5px;
+        overflow: hidden;
+        margin-right: 20px;
+        /* Espacio a la derecha de cada elemento */
+    }
+    
+    .individual2:last-child {
+        margin-right: 0;
+        /* Elimina el margen derecho del último elemento */
+    }
+    
+    .individual2 img {
+        width: 100%;
+        height: 300px;
+        object-fit: cover;
+    }
+    
+    .titulo-ps {
+        text-align: center;
+        padding: 10px;
+        font-size: 16px;
+        color: #fff;
+    }
+    
+    .individual2 button {
+        background-color: #ffffff;
+        color: #000000;
+        border: none;
+        padding: 8px 16px;
+        font-size: 14px;
+        border-radius: 5px;
+        cursor: pointer;
+        text-decoration: none;
+        display: block;
+        margin: 10px auto;
+        text-align: center;
+    }
+    
+    .individual2 button:hover {
+        background-color: #e0e0e0;
+    }
+    
+    /* Quitar subrayado de los hipervínculos */
+    a {
+        text-decoration: none;
+    }
+</style>
+<style>
+    @media (max-width: 768px) {
+        .header {
+            flex-direction: column;
+        }
+        .header nav {
+            width: 100%;
+            overflow-x: auto;
+            justify-content: initial;
+            scroll-behavior: smooth;
+        }
+        .container {
+            padding: 10px;
+            flex-direction: column;
+        }
+        .banner-container {
+            width: 100%;
+        }
+        .banner-item .info {
+            left: 10px;
+            right: 10px;
+            bottom: 10px;
+            padding: 5px;
+        }
+        .banner-item .info h2 {
+            font-size: 18px;
+        }
+        .banner-item .info p {
+            font-size: 14px;
+        }
+        .banner-item .info button {
+            padding: 8px 15px;
+            font-size: 14px;
+        }
+        .Anterior,
+        .Siguiente {
+            font-size: 18px;
+            padding: 5px;
+        }
+    }
+</style>
+
+<style>
+    @media (max-width: 768px) {
+        .header {
+            flex-direction: column;
+        }
+
+        .header nav {
+            width: 100%;
+            overflow-x: auto;
+            justify-content: initial;
+            scroll-behavior: smooth;
+        }
+
+        .container {
+            padding: 10px;
+            flex-direction: column;
+        }
+
+        .banner-container {
+            width: 100%;
+        }
+
+        .banner-item .info {
+            left: 10px;
+            right: 10px;
+            bottom: 10px;
+            padding: 5px;
+        }
+
+        .banner-item .info h2 {
+            font-size: 18px;
+        }
+
+        .banner-item .info p {
+            font-size: 14px;
+        }
+
+        .banner-item .info button {
+            padding: 8px 15px;
+            font-size: 14px;
+        }
+
+        .Anterior,
+        .Siguiente {
+            font-size: 18px;
+            padding: 5px;
+        }
+    }
+</style>
+
+<body>
+    <div class="header">
+        <a href="/">
+            <img width="150" height="90" src="imagenes/logo2.png" alt="Logo">
+        </a>
+        <nav>
+            <ul>
+                <li><a href="index.html">Inicio</a></li>
+                <li><a href="videos.html">Videos</a></li>
+                <li><a href="programas.html">Programas</a></li>
+                <li><a href="juegos.html">Juegos</a></li>
+                <li><a href="entretenimiento.html">Entretenimiento</a></li>
+                <li><a href="noticias.html">Noticias</a></li>
+                <li><a href="#">Info</a></li>
+            </ul>
+        </nav>
+
+        <!--barra de busqeuda-->
+        <div class="search-container">
+            <button type="button" class="search-button" id="search-button">
+                <i class="fa fa-search"></i>
+            </button>
+            <input type="text" name="q" class="search-input" placeholder="Buscar..." id="search-input">
+        </div>
+    </div>
+
+    <div class="banner-container">
+        <button class="Anterior" onclick="scrollBanner('Anterior')">&laquo;</button>
+        <div class="banner">
+            <div class="banner-item">
+                <img src="https://i.ytimg.com/vi/ftwYjvxt45A/maxresdefault.jpg"
+                    alt="Película 1">
+                <div class="info">
+                    <h2>Deadpool & Wolverine
+                    </h2>
+                    <p>Lobezno se recupera de sus heridas cuando se cruza con el bocazas, Deadpool, que ha viajado en el
+                        tiempo para curarlo con la esperanza de hacerse amigos y formar un equipo para acabar con un
+                        enemigo común.</p>
+                    <button onclick="location.href='detalle-pelicula.html'">Ver más</button>
+                </div>
+            </div>
+            <div class="banner-item">
+                <img src="https://lh6.googleusercontent.com/8EiRX76OwbHir39OlrDU7ZxcUWzBuJWdv0dPgm8rGAbxoTp6ox2Se6WcXlslR5aFGUPu51w1E4Ig--rpiitmUq_ignOQluylaFUhZArSyOKBKoAdvWjEsTh6Q7gRQmZ4fg=w1280"
+                    alt="Película 2">
+                <div class="info">
+                    <h2>Jujutsu Kaisen Cero
+                    </h2>
+                    <p>Yuuta Okkotsu está embrujado. Desde que su amiga de la infancia, Rika, murió en un accidente de
+                        tráfico, su fantasma se ha quedado con él. Pero su espíritu no aparece como la dulce chica que
+                        Yuuta conoció una vez. En cambio, se manifiesta como una entidad monstruosa y poderosa que lo
+                        protege ferozmente. Incapaz de controlar el comportamiento violento de Rika, Yuuta se ve
+                        impotente para detener el derramamiento de sangre que sigue a su brutal venganza.
+
+                    </p>
+                    <button onclick="location.href='detalle-pelicula.html'">Ver más</button>
+                </div>
+            </div>
+            <div class="banner-item">
+                <img src="https://via.placeholder.com/1920x1080" alt="Película 3">
+                <div class="info">
+                    <h2>Película 3</h2>
+                    <p>Descripción de la película 3.</p>
+                    <button onclick="location.href='detalle-pelicula.html'">Ver más</button>
+                </div>
+            </div>
+        </div>
+        <button class="Siguiente" onclick="scrollBanner('Siguiente')">&raquo;</button>
+    </div>
+
+
+    <!--Categoria de pelicuals Y series -->
+    <div class="linea-de-categoria">
+        <a href="peliculas.html">PELICULAS</a>
+        <a href="series.html">SERIES</a>
+    </div>
+
+    <!--Peliculas y series revueltas-->
+
+    <div class="contenido">
+        <div class="individual">
+            <div class="individual2">
+                <img src="https://content.wepik.com/statics/119871635/preview-page0.jpg"
+                    alt="imagen-principal-de-contenido">
+                <div class="titulo-ps">THE SPACE BETWEEN US</div>
+                <a href="#">
+                    <button>Ver ahora</button>
+                </a>
+            </div>
+            <div class="individual2">
+                <img src="https://hips.hearstapps.com/hmg-prod/images/nosotros-poster-1549472640.jpg"
+                    alt="imagen-principal-de-contenido">
+                <div class="titulo-ps">US</div>
+                <a href="#">
+                    <button>Ver ahora</button>
+                </a>
+            </div>
+            <div class="individual2">
+                <img src="https://i0.wp.com/elpoderdelasideas.com/wp-content/uploads/posters-cine-2012-39.jpg"
+                    alt="imagen-principal-de-contenido">
+                <div class="titulo-ps">THE DARK KNIGHT RISES</div>
+                <a href="#">
+                    <button>Ver ahora</button>
+                </a>
+            </div>
+            <div class="individual2">
+                <img src="https://procinal.com/uploads/PELICULAS/Img_movies/Img_360x500/360%20X%20500%20BAD%20BOYS.jpg" alt="imagen-principal-de-contenido">
+                <div class="titulo-ps">Bad Boys: Hasta la muerte
+                </div>
+                <a href="Peliculas/Bad-Boys-Hasta-la-muerte.html">
+                    <button>Ver ahora</button>
+                </a>
+            </div>
+            <div class="individual2">
+                <img src="https://via.placeholder.com/200x300" alt="imagen-principal-de-contenido">
+                <div class="titulo-ps">Titulo 5</div>
+                <a href="#">
+                    <button>Ver ahora</button>
+                </a>
+            </div>
+            <div class="individual2">
+                <img src="https://via.placeholder.com/200x300" alt="imagen-principal-de-contenido">
+                <div class="titulo-ps">Titulo 6</div>
+                <a href="#">
+                    <button>Ver ahora</button>
+                </a>
+            </div>
+            <div class="individual2">
+                <img src="https://via.placeholder.com/200x300" alt="imagen-principal-de-contenido">
+                <div class="titulo-ps">Titulo 7</div>
+                <a href="#">
+                    <button>Ver ahora</button>
+                </a>
+            </div>
+            <div class="individual2">
+                <img src="https://via.placeholder.com/200x300" alt="imagen-principal-de-contenido">
+                <div class="titulo-ps">Titulo 8</div>
+                <a href="#">
+                    <button>Ver ahora</button>
+                </a>
+            </div>
+            <div class="individual2">
+                <img src="https://via.placeholder.com/200x300" alt="imagen-principal-de-contenido">
+                <div class="titulo-ps">Titulo 9</div>
+                <a href="#">
+                    <button>Ver ahora</button>
+                </a>
+            </div>
+            <div class="individual2">
+                <img src="https://via.placeholder.com/200x300" alt="imagen-principal-de-contenido">
+                <div class="titulo-ps">Titulo 10</div>
+                <a href="#">
+                    <button>Ver ahora</button>
+                </a>
+            </div>
+
+        </div>
+    </div>
+
+
+
+    <div class="contenido">
+        <div class="individual">
+            <div class="individual2">
+                <img src="https://sun9-26.userapi.com/impg/4pZlBOe8Ay3mcdYnSV8fPWCTcy1le-PCjnB4eQ/k1bCpr45Yek.jpg?size=300x450&quality=96&sign=942e91a0d281eecedc30ab0470749c11&type=album" alt="imagen-principal-de-contenido">
+                <div class="titulo-ps">Guerra Mundial Z</div>
+                <a href="Peliculas/Guerra Mundial Z.html"><button>Ver ahora</button></a>
+            </div>
+            <div class="individual2">
+                <img src="https://via.placeholder.com/200x300" alt="imagen-principal-de-contenido">
+                <div class="titulo-ps">Titulo 12</div>
+                <a href="#"><button>Ver ahora</button></a>
+            </div>
+            <div class="individual2">
+                <img src="https://via.placeholder.com/200x300" alt="imagen-principal-de-contenido">
+                <div class="titulo-ps">Titulo 13</div>
+                <a href="#"><button>Ver ahora</button></a>
+            </div>
+            <div class="individual2">
+                <img src="https://via.placeholder.com/200x300" alt="imagen-principal-de-contenido">
+                <div class="titulo-ps">Titulo 14</div>
+                <a href="#"><button>Ver ahora</button></a>
+            </div>
+            <div class="individual2">
+                <img src="https://via.placeholder.com/200x300" alt="imagen-principal-de-contenido">
+                <div class="titulo-ps">Titulo 15</div>
+                <a href="#"><button>Ver ahora</button></a>
+            </div>
+            <div class="individual2">
+                <img src="https://via.placeholder.com/200x300" alt="imagen-principal-de-contenido">
+                <div class="titulo-ps">Titulo 16</div>
+                <a href="#"><button>Ver ahora</button></a>
+            </div>
+            <div class="individual2">
+                <img src="https://via.placeholder.com/200x300" alt="imagen-principal-de-contenido">
+                <div class="titulo-ps">Titulo 17</div>
+                <a href="#"><button>Ver ahora</button></a>
+            </div>
+            <div class="individual2">
+                <img src="https://via.placeholder.com/200x300" alt="imagen-principal-de-contenido">
+                <div class="titulo-ps">Titulo 18</div>
+                <a href="#"><button>Ver ahora</button></a>
+            </div>
+            <div class="individual2">
+                <img src="https://via.placeholder.com/200x300" alt="imagen-principal-de-contenido">
+                <div class="titulo-ps">Titulo 19</div>
+                <a href="#"><button>Ver ahora</button></a>
+            </div>
+            <div class="individual2">
+                <img src="https://via.placeholder.com/200x300" alt="imagen-principal-de-contenido">
+                <div class="titulo-ps">Titulo 20</div>
+                <a href="#"><button>Ver ahora</button></a>
+            </div>
+        </div>
+    </div>
+    <div class="contenido">
+        <div class="individual">
+            <div class="individual2">
+                <img src="https://via.placeholder.com/200x300" alt="imagen-principal-de-contenido">
+                <div class="titulo-ps">Titulo 21</div>
+                <a href="#"><button>Ver ahora</button></a>
+            </div>
+            <div class="individual2">
+                <img src="https://via.placeholder.com/200x300" alt="imagen-principal-de-contenido">
+                <div class="titulo-ps">Titulo 22</div>
+                <a href="#"><button>Ver ahora</button></a>
+            </div>
+            <div class="individual2">
+                <img src="https://via.placeholder.com/200x300" alt="imagen-principal-de-contenido">
+                <div class="titulo-ps">Titulo 23</div>
+                <a href="#"><button>Ver ahora</button></a>
+            </div>
+            <div class="individual2">
+                <img src="https://via.placeholder.com/200x300" alt="imagen-principal-de-contenido">
+                <div class="titulo-ps">Titulo 24</div>
+                <a href="#"><button>Ver ahora</button></a>
+            </div>
+            <div class="individual2">
+                <img src="https://via.placeholder.com/200x300" alt="imagen-principal-de-contenido">
+                <div class="titulo-ps">Titulo 25</div>
+                <a href="#"><button>Ver ahora</button></a>
+            </div>
+            <div class="individual2">
+                <img src="https://via.placeholder.com/200x300" alt="imagen-principal-de-contenido">
+                <div class="titulo-ps">Titulo 26</div>
+                <a href="#"><button>Ver ahora</button></a>
+            </div>
+            <div class="individual2">
+                <img src="https://via.placeholder.com/200x300" alt="imagen-principal-de-contenido">
+                <div class="titulo-ps">Titulo 27</div>
+                <a href="#"><button>Ver ahora</button></a>
+            </div>
+            <div class="individual2">
+                <img src="https://via.placeholder.com/200x300" alt="imagen-principal-de-contenido">
+                <div class="titulo-ps">Titulo 28</div>
+                <a href="#"><button>Ver ahora</button></a>
+            </div>
+            <div class="individual2">
+                <img src="https://via.placeholder.com/200x300" alt="imagen-principal-de-contenido">
+                <div class="titulo-ps">Titulo 29</div>
+                <a href="#"><button>Ver ahora</button></a>
+            </div>
+            <div class="individual2">
+                <img src="https://via.placeholder.com/200x300" alt="imagen-principal-de-contenido">
+                <div class="titulo-ps">Titulo 30</div>
+                <a href="#"><button>Ver ahora</button></a>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>

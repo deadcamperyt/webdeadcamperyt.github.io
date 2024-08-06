@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Noticias</title>
+    <link rel="stylesheet" href="styles/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css"
+        alt="iconos">
+    <link rel="icon" href="imagenes/logo 1.png">
+</head>
+
+<style>
+    .header {
+        display: flex;
+        width: 90%;
+        margin: auto;
+        align-items: center;
+        justify-content: space-between;
+    }
+
+    .header img {
+        margin: auto 10px;
+    }
+
+    .center {
+        text-align: center;
+    }
+
+    .h2 {
+        font-size: 12px;
+    }
+
+    .p {
+        font-family: Arial, sans-serif;
+        ;
+    }
+
+    .container {
+        width: 80%;
+        margin: 0 auto;
+        padding: 20px;
+        border-radius: 10px;
+    }
+
+    .main-content {
+        display: flex;
+        justify-content: space-between;
+        max-width: 1200px;
+        margin: 20px auto;
+        padding: 20px;
+    }
+
+    .noticia {
+        flex: 3;
+        margin-right: 20px;
+        background-color: #ffffff15;
+        border-radius: 10px;
+        padding: 10px;
+    }
+
+    .destacada img {
+        width: 100%;
+        height: auto;
+        border-radius: 10px;
+    }
+
+    .destacada {
+        text-decoration: none;
+        /* Asegura que el texto no tenga subrayado */
+        color: inherit;
+        /* Hereda el color del texto del elemento padre */
+        display: block;
+        /* Hace que el enlace abarque toda el área del contenedor */
+    }
+
+    .noticias {
+        flex: 1;
+        display: grid;
+        grid-template-columns: 1fr;
+        gap: 20px;
+        padding: 20px;
+        font-size: 12px;
+    }
+
+    .todas-noticias,
+    .noticias-viejas {
+        position: relative;
+        padding: 10px;
+        background-color: #ffffff15;
+        border-radius: 10px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        text-decoration: none;
+        /* Asegura que el texto no tenga subrayado */
+        color: inherit;
+        /* Hereda el color del texto del elemento padre */
+        display: block;
+        /* Hace que el enlace abarque toda el área del contenedor */
+    }
+
+    .todas-noticias img,
+    .noticias-viejas img {
+        width: 100%;
+        height: auto;
+        border-radius: 10px;
+    }
+
+    .noticias-2 {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 20px;
+        padding: 20px;
+    }
+
+    @media (max-width: 768px) {
+        .header {
+            flex-direction: column;
+        }
+
+        .header nav {
+            width: 100%;
+            overflow-x: auto;
+            justify-content: initial;
+            scroll-behavior: smooth;
+        }
+
+        .main-content {
+            flex-direction: column;
+        }
+
+        .noticia {
+            margin-right: 0;
+        }
+
+        .noticias-2 {
+            grid-template-columns: repeat(2, 1fr);
+            /* Dos noticias por fila en pantallas más pequeñas */
+        }
+    }
+
+    @media (max-width: 480px) {
+        .noticias-2 {
+            grid-template-columns: 1fr;
+            /* Una noticia por fila en pantallas muy pequeñas */
+        }
+    }
+</style>
+
+<body>
+    <div class="header">
+        <a href="/">
+            <img width="150" height="90" src="imagenes/logo2.png" alt="Logo">
+        </a>
+        <nav>
+            <ul>
+                <li><a href="index.html">Inicio</a></li>
+                <li><a href="videos.html">Videos</a></li>
+                <li><a href="programas.html">Programas</a></li>
+                <li><a href="juegos.html">Juegos</a></li>
+                <li><a href="entretenimiento.html">Entretenimiento</a></li>
+                <li><a href="noticias.html">Noticias</a></li>
+                <li><a href="#">Info</a></li>
+            </ul>
+        </nav>
+
+        <!--barra de busqeuda-->
+        <div class="search-container">
+            <button type="button" class="search-button" id="search-button">
+                <i class="fa fa-search"></i>
+            </button>
+            <input type="text" name="q" class="search-input" placeholder="Buscar..." id="search-input">
+        </div>
+    </div>
+
+    <!--NOTICIAS NUEVAS-->
+    <div class="main-content">
+        <div class="noticia">
+            <a href="Noticias/¡Sinister, la película que supera al sol en terror, deja al mundo en vilo!.html"
+                class="destacada">
+                <div class="destacada">
+                    <h2>¡Sinister, la película que supera al sol en terror, deja al mundo en vilo!</h2>
+                    <img src="imagenes/Noticias/Sinister.webp" alt="imagen-destacada">
+                    <p>Un reciente estudio ha coronado a “Sinister”, estrenada en 2012, como la cinta más espeluznante
+                        jamás
+                        realizada. Este descubrimiento coloca a “Sinister” por encima de otros títulos icónicos del
+                        terror
+                        como “El Exorcista”, “Actividad Paranormal” y “El Resplandor”. </p>
+            </a>
+        </div>
+    </div>
+
+    <!--NOTICIAS LATERALES-->
+    <div class="noticias">
+        <a href="Paginas/Pagina-noticias.html" class="todas-noticias">
+            <img src="imagenes/Noticias/Call of Duty Warzone.webp" alt="imagen-destacada">
+            <h2>Desastre en el campo de batalla móvil: Call of Duty Warzone se tambalea en su debut, ¿puede
+                recuperarse?</h2>
+        </a>
+        <a href="pagina2.html" class="todas-noticias">
+            <img src="imagenes/Noticias/Los Videojuegos Más Jugados a Nivel Mundial.webp" alt="imagen-destacada">
+            <h2>Los Videojuegos Más Jugados a Nivel Mundial</h2>
+        </a>
+        <a href="pagina3.html" class="todas-noticias">
+            <img src="imagenes/Noticias/pokemon.webp" alt="imagen-destacada">
+            <h2>¡Pokémon Legends: Z-A! Un Nuevo Capítulo en la Saga Pokémon Llegará en 2025 </h2>
+        </a>
+    </div>
+    </div>
+
+    <!--NOTICIAS VIEJAS-->
+    <div class="noticias-2">
+        <a href="pagina4.html" class="noticias-viejas">
+            <img src="imagenes/Noticias/Revuelo en el Campo de Batalla.webp" alt="imagen-destacada">
+            <h2>¡Revuelo en el Campo de Batalla! Call of Duty: Warzone Mobile Llega con Fuerza a los Dispositivos
+                Móviles</h2>
+        </a>
+        <a href="pagina5.html" class="noticias-viejas">
+            <img src="imagenes/Noticias/yuzu.webp" alt="imagen-destacada">
+            <h2>¡Cae el Gigante! Emulador Yuzu se Desmorona Tras Escándalo de Piratería de Zelda!</h2>
+        </a>
+    </div>
+
+    <footer>
+        <div class="social-media">
+            <a rel="external" target="_blank" href="https://www.youtube.com/@DEADCAMPERYT">
+                <i class="fa-brands fa-youtube"></i>
+            </a>
+            <a rel="external" target="_blank" href="https://www.instagram.com/DeadCamperYT">
+                <i class="fa-brands fa-instagram"></i>
+            </a>
+            <a rel="external" target="_blank" href="https://www.twitter.com/DEADCANPER">
+                <i class="fa-brands fa-twitter"></i>
+            </a>
+            <a rel="external" target="_blank" href="https://www.tiktok.com/@deadyt2.0">
+                <i class="fa-brands fa-tiktok"></i>
+            </a>
+            <a rel="external" target="_blank" href="https://www.facebook.com/Deadcamperyt">
+                <i class="fa-brands fa-facebook"></i>
+            </a>
+        </div>
+        <p>© 2024 DEADCAMPERYT</p>
+    </footer>
+</body>
+
+</html>

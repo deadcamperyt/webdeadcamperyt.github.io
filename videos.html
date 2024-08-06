@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Videos</title>
+    <link rel="stylesheet" href="styles/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css"
+        alt="iconos">
+    <link rel="icon" href="imagenes/logo 1.png">
+</head>
+
+<style>
+    .header {
+        display: flex;
+        width: 90%;
+        margin: auto;
+        align-items: center;
+        justify-content: space-between;
+    }
+
+    .header img {
+        margin: auto 10px;
+    }
+
+    .center {
+        text-align: center;
+
+    }
+
+    .video-section {
+        margin-bottom: 50px;
+    }
+
+    .video-section h2 {
+        text-align: center;
+        margin-bottom: 20px;
+    }
+
+    .video-container {
+    max-width: 1000px;
+    margin: 20px auto;
+    padding: 20px;
+    box-sizing: border-box;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 20px; /* Espacio entre los videos */
+    border-radius: 10px;
+    background-color: #ffffff15;
+}
+
+
+    .video-container iframe {
+        width: calc(33.33% - 20px);
+        height: 200px;
+        border: 1px;
+        border-radius: 10px;
+    }
+</style>
+
+<style>
+    /*estilos de header para diferentes pantallas*/
+    @media (max-width: 768px) {
+        .header {
+            flex-direction: column;
+        }
+
+        .header nav {
+            width: 100%;
+            overflow-x: auto;
+            justify-content: initial;
+            scroll-behavior: smooth;
+        }
+
+        .container {
+            padding: 10px;
+            flex-direction: column;
+        }
+    }
+
+    @media (max-width: 800px) {
+        .video-container iframe {
+            width: calc(50% - 20px);
+            /* Ajustado el ancho y margen */
+            height: auto;
+            /* Eliminado padding-bottom */
+        }
+    }
+
+    @media (max-width: 480px) {
+        .video-container iframe {
+            width: 100%;
+            /* Ajustado el ancho a 100% */
+            height: auto;
+            /* Eliminado padding-bottom */
+        }
+    }
+</style>
+
+<body>
+    <div class="header">
+        <a href="/">
+            <img width="150" height="90" src="imagenes/logo2.png" alt="Logo">
+        </a>
+        <nav>
+            <ul>
+                <li><a href="index.html">Inicio</a></li>
+                <li><a href="videos.html">Videos</a></li>
+                <li><a href="programas.html">Programas</a></li>
+                <li><a href="juegos.html">Juegos</a></li>
+                <li><a href="entretenimiento.html">Entretenimiento</a></li>
+                <li><a href="noticias.html">Noticias</a></li>
+                <li><a href="#">Info</a></li>
+            </ul>
+        </nav>
+
+        <!--barra de busqeuda-->
+        <div class="search-container">
+            <button type="button" class="search-button" id="search-button">
+                <i class="fa fa-search"></i>
+            </button>
+            <input type="text" name="q" class="search-input" placeholder="Buscar..." id="search-input">
+        </div>
+    </div>
+
+    <!-- contenido 1 -->
+
+    <div class="videos">
+        <div class="center">
+            <div class="video-section" id="youtube-section">
+                <h2>YouTube</h2>
+                <div class="video-container" id="youtube-videos"></div>
+            </div>
+
+        </div>
+    </div>
+
+    <footer>
+        <div class="social-media">
+            <a rel="external" target="_blank" href="https://www.youtube.com/@DEADCAMPERYT">
+                <i class="fa-brands fa-youtube"></i>
+            </a>
+            <a rel="external" target="_blank" href="https://www.instagram.com/DeadCamperYT">
+                <i class="fa-brands fa-instagram"></i>
+            </a>
+            <a rel="external" target="_blank" href="https://www.twitter.com/DEADCANPER">
+                <i class="fa-brands fa-twitter"></i>
+            </a>
+            <a rel="external" target="_blank" href="https://www.tiktok.com/@deadyt2.0">
+                <i class="fa-brands fa-tiktok"></i>
+            </a>
+            <a rel="external" target="_blank" href="https://www.facebook.com/Deadcamperyt">
+                <i class="fa-brands fa-facebook"></i>
+            </a>
+        </div>
+        <p>© 2024 DEADCAMPERYT</p>
+    </footer>
+    <script>
+        // YouTube API settings
+        const youtubeApiKey = 'AIzaSyBWciXvDT175RBkTU_1fyqj05svlGvSBKs';
+        const youtubeChannelId = 'UCsNh9TXExuJAadoXgVpWeUQ';
+
+        // Load YouTube videos
+        async function loadYouTubeVideos(pageToken = '') {
+            const youtubeUrl = `https://www.googleapis.com/youtube/v3/search?key=${youtubeApiKey}&channelId=${youtubeChannelId}&part=snippet,id&order=date&maxResults=50&pageToken=${pageToken}`;
+            const response = await fetch(youtubeUrl);
+            const data = await response.json();
+            const youtubeVideos = data.items;
+            const youtubeContainer = document.getElementById('youtube-videos');
+            youtubeVideos.forEach((video) => {
+                if (video.id.kind === 'youtube#video') {  // Verifica si es un video
+                    const iframe = document.createElement('iframe');
+                    iframe.src = `https://www.youtube.com/embed/${video.id.videoId}`;
+                    iframe.allowFullscreen = true;
+                    youtubeContainer.appendChild(iframe);
+                }
+            });
+
+            // Check if there is a next page
+            if (data.nextPageToken) {
+                await loadYouTubeVideos(data.nextPageToken);  // Recursively load the next page
+            }
+        }
+
+        // Load Facebook videos
+        async function loadFacebookVideos() {
+            const facebookUrl = `https://graph.facebook.com/v13.0/${facebookPageId}/videos?access_token=${facebookAccessToken}`;
+            const response = await fetch(facebookUrl);
+            const data = await response.json();
+            const facebookVideos = data.data;
+            const facebookContainer = document.getElementById('facebook-videos');
+            facebookVideos.forEach((video) => {
+                const iframe = document.createElement('iframe');
+                iframe.src = `https://www.facebook.com/plugins/video.php?href=https://www.facebook.com/${facebookPageId}/videos/${video.id}&show_text=false&width=560`;
+                iframe.allowFullscreen = true;
+                facebookContainer.appendChild(iframe);
+            });
+        }
+
+        // Load videos on page load
+        window.onload = () => {
+            loadYouTubeVideos();
+            loadFacebookVideos();
+        };
+
+    </script>
+
+</body>
+
+</html>
